@@ -73,7 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\TenantDashboard.cs" />
+    <Compile Include="Pages\Tenant.cs" />
     <Compile Include="Specflow\DashboardSignoutSteps.cs" />
     <Compile Include="Pages\Dashboard.cs" />
     <Compile Include="Pages\SearchSort.cs" />
