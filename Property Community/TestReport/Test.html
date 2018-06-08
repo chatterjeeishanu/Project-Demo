@@ -1,0 +1,1221 @@
+
+                                        
+
+
+                    <!DOCTYPE html>
+                    <html>
+                        <head>
+                            <!--
+                                ExtentReports Library 2.40.0 | http://relevantcodes.com/extentreports-for-selenium/ | https://github.com/anshooarora/
+                                Copyright (c) 2015, Anshoo Arora (Relevant Codes) | Copyrights licensed under the New BSD License | http://opensource.org/licenses/BSD-3-Clause
+                                Documentation: http://extentreports.relevantcodes.com 
+                            -->
+                            <meta charset='UTF-8' /> 
+                            <meta name='description' content='ExtentReports (by Anshoo Arora) is a reporting library for automation testing for .NET and Java. It creates detailed and beautiful HTML reports for modern browsers. ExtentReports shows test and step summary along with dashboards, system and environment details for quick analysis of your tests.' />
+                            <meta name='robots' content='noodp, noydir' />
+                            <meta name='viewport' content='width=device-width, initial-scale=1' />
+                            <meta name='extentx' id='extentx' />
+
+                            <title>
+Property Community Test Automation Report                            </title>
+
+                            <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+                            <link href='https://cdn.rawgit.com/anshooarora/extentreports/97fc3fe7f55cba86a4f5b6ff9a2bb80de3e4867c/cdn/extent.css' type='text/css' rel='stylesheet' />
+
+                            <style>
+
+                
+                                        </style>
+                        </head>
+                        <body class='extent standard hide-overflow'>
+                            <!-- nav -->
+                            <nav>
+                                <div class='logo-container'>
+                                    <a class='logo-content' href='http://extentreports.relevantcodes.com'>
+                                        <span>ExtentReports</span>
+                                    </a>
+                                    <a href='#' data-activates='slide-out' class='button-collapse hide-on-large-only'><i class='mdi-navigation-apps'></i></a>
+                                </div>
+
+                                <!-- sidenav -->
+                                <ul id='slide-out' class='side-nav fixed'>
+                                    <li class='analysis waves-effect active'><a href='#!' class='test-view' onclick='_updateCurrentStage(0)'><i class='mdi-action-dashboard'></i>Test Details</a></li>
+                                                                        <li class='analysis waves-effect'><a href='#!' class='dashboard-view'><i class='mdi-action-track-changes'></i></i>Analysis</a></li>
+                                </ul>
+                                <!-- /sidenav -->
+
+                                <span class='report-name'>Automation Report - Ishanu</span> <span class='report-headline'></span>
+
+                                <!-- navright -->
+                                <ul class='right hide-on-med-and-down nav-right'>
+                                    <li class='theme-selector' alt='Click to toggle dark theme.' title='Click to toggle dark theme.'>
+                                        <i class='mdi-hardware-desktop-windows'></i>
+                                    </li>
+                                    <li>
+                                        <span class='suite-started-time'>2018-06-07 14:53:03</span>
+                                    </li>
+                                    <li>
+                                        <span>v2.41.0</span>
+                                    </li>
+                                </ul>
+                                <!-- /navright -->
+                            </nav>
+                            <!-- /nav -->
+
+                            <div class='container'>
+                                <!-- dashboard -->
+                                <div id='dashboard-view' class='row'>
+                                    <div class='time-totals'>
+                                        <div class='col l2 m4 s6'>
+                                            <div class='card suite-total-tests'> 
+                                                <span class='panel-name'>Total Tests</span> 
+                                                <span class='total-tests'> <span class='panel-lead'></span> </span> 
+                                            </div> 
+                                        </div>
+                                        <div class='col l2 m4 s6'>
+                                            <div class='card suite-total-steps'> 
+                                                <span class='panel-name'>TotalSteps</span> 
+                                                <span class='total-steps'> <span class='panel-lead'></span> </span> 
+                                            </div> 
+                                        </div>
+                                        <div class='col l4 m4 s12'>
+                                            <div class='card suite-time'> 
+                                                <span class='panel-name'>Total Time Taken</span> 
+                                                <span class='suite-total-time-taken panel-lead'>0h 0m 32s+419ms</span> 
+                                            </div> 
+                                        </div>
+                                        <div class='col l2 m6 s6 suite-start-time'>
+                                            <div class='card green-accent'> 
+                                                <span class='panel-name'>Start</span> 
+                                                <span class='panel-lead suite-started-time'>2018-06-07 14:53:03</span> 
+                                            </div> 
+                                        </div>
+                                        <div class='col l2 m6 s6 suite-end-time'>
+                                            <div class='card pink-accent'> 
+                                                <span class='panel-name'>End</span> 
+                                                <span class='panel-lead suite-ended-time'>2018-06-07 14:53:35</span> 
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <div class='charts'>
+                                        <div class='col s12 m6 l4 fh'> 
+                                            <div class='card-panel'> 
+                                                <div>
+                                                    <span class='panel-name'>Tests View</span>
+                                                </div> 
+                                                <div class='panel-setting modal-trigger test-count-setting right'>
+                                                    <a href='#test-count-setting'><i class='mdi-navigation-more-vert text-md'></i></a>
+                                                </div> 
+                                                <div class='chart-box'>
+                                                    <canvas class='text-centered' id='test-analysis'></canvas>
+                                                </div> 
+                                                <div>
+                                                    <span class='weight-light'><span class='t-pass-count weight-normal'></span> test(s) passed</span>
+                                                </div> 
+                                                <div>
+                                                    <span class='weight-light'><span class='t-fail-count weight-normal'></span> test(s) failed, <span class='t-others-count weight-normal'></span> others</span>
+                                                </div> 
+                                            </div> 
+                                        </div> 
+                                        <div class='col s12 m6 l4 fh'> 
+                                            <div class='card-panel'> 
+                                                <div>
+                                                    <span class='panel-name'>StepsView</span>
+                                                </div> 
+                                                <div class='panel-setting modal-trigger step-status-filter right'>
+                                                    <a href='#step-status-filter'><i class='mdi-navigation-more-vert text-md'></i></a>
+                                                </div> 
+                                                <div class='chart-box'>
+                                                    <canvas class='text-centered' id='step-analysis'></canvas>
+                                                </div> 
+                                                <div>
+                                                    <span class='weight-light'><span class='s-pass-count weight-normal'></span> step(s) passed</span>
+                                                </div> 
+                                                <div>
+                                                    <span class='weight-light'><span class='s-fail-count weight-normal'></span> step(s) failed, <span class='s-others-count weight-normal'></span> others</span>
+                                                </div> 
+                                            </div> 
+                                        </div>
+                                        <div class='col s12 m12 l4 fh'> 
+                                            <div class='card-panel'> 
+                                                <span class='panel-name'>Pass Percentage</span> 
+                                                <span class='pass-percentage panel-lead'></span> 
+                                                <div class='progress light-blue lighten-3'> 
+                                                    <div class='determinate light-blue'></div> 
+                                                </div> 
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <div class='system-view'>
+                                        <div class='col l4 m12 s12'>
+                                            <div class='card-panel'>
+                                                <span class='label info right outline'>Environment</span>
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Param</th>
+                                                            <th>Value</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                                <td>User Name</td>
+                                                                <td>ishanu</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Machine Name</td>
+                                                                <td>LAPTOP-2O1JTH79</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Domain</td>
+                                                                <td>LAPTOP-2O1JTH79</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>OS</td>
+                                                                <td>Win32NT 10.0.17134.0</td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /dashboard -->
+
+                                <!-- tests -->
+                                <div id='test-view' class='row _addedTable'>
+                                    <div class='col _addedCell1'>
+                                        <div class='contents'>
+                                            <div class='card-panel heading'>
+                                                <h5>Tests</h5>
+                                            </div>
+                                            <div class='card-panel filters'>
+                                                <div>
+                                                    <a data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#' class='dropdown-button button tests-toggle'><i class='mdi-action-subject icon'></i></a>
+                                                    <ul id='tests-toggle' class='dropdown-content'>
+                                                        <li class='pass'><a href='#!'>Pass</a></li>
+                                                        <li class='fail'><a href='#!'>Fail</a></li>
+                                                                                                                                                                        <li class='skip'><a href='#!'>Skip</a></li>
+                                                        <li class='divider'></li>
+                                                        <li class='clear'><a href='#!'>Clear Filters</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div>
+                                                    <a id='clear-filters' alt='Clear Filters' title='Clear Filters'><i class='mdi-navigation-close icon'></i></a>
+                                                </div>
+                                                <div>&nbsp;&middot;&nbsp;</div>
+                                                <div>
+                                                    <a id='enableDashboard' alt='Enable Dashboard' title='Enable Dashboard'><i class='mdi-action-track-changes icon'></i></a>
+                                                </div> 
+                                                <div>
+                                                    <a id='refreshCharts' alt='Refresh Charts on Filters' title='Refresh Charts on Filters' class='enabled'><i class='mdi-navigation-refresh icon'></i></i></a>
+                                                </div>
+                                                <div>&nbsp;&middot;</div>
+                                                <div class='search' alt='Search Tests' title='Search Tests'>
+                                                    <div class='input-field left'>
+                                                        <input id='searchTests' type='text' class='validate' placeholder='Search Tests...'>
+                                                    </div>
+                                                    <i class='mdi-action-search icon'></i>
+                                                </div>
+                                            </div>
+                                            <div class='card-panel no-padding-h no-padding-v'>
+                                                <div class='wrapper'>
+                                                    <ul id='test-collection' class='test-collection'>
+                                                            <li class='collection-item test displayed active pass ' extentid='d59fd55e-8c23-4f6e-aba3-958ee0e35156'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Tenant Dashboard                         </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-22 10:40:18</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-22 10:40:39</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 21s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:40:27</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:40:28</td>                                                                                            <td class='step-details'>My Rentals Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:40:30</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:40:33</td>                                                                                            <td class='step-details'>My Watchlist Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:40:35</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:40:37</td>                                                                                            <td class='step-details'>My Applications Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:40:39</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='9f50905c-5ad4-40ee-8a36-f1fe855d153c'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Service Supplier Dashboard                        </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-22 10:51:10</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-22 10:51:32</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 22s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:51:23</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:51:25</td>                                                                                            <td class='step-details'>My Watchlist SS Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:51:27</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:51:28</td>                                                                                            <td class='step-details'>My Jobs Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:51:29</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:51:30</td>                                                                                            <td class='step-details'>My Quotes Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:51:32</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='7dd846aa-5a6f-4122-b926-44885bfa645e'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Property Owner Dashboard                       </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-22 10:52:03</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-22 10:52:23</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 20s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:52:12</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:52:14</td>                                                                                            <td class='step-details'>My Properties Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:52:16</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:52:17</td>                                                                                            <td class='step-details'>My Tenants Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:52:19</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:52:21</td>                                                                                            <td class='step-details'>Finance Details Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>10:52:23</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='fa1b25f6-52a3-45d8-8812-21b598c5f98a'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Dashboard Signout                      </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-22 11:22:43</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-22 11:22:56</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 13s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:22:54</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:22:56</td>                                                                                            <td class='step-details'>Sign Out is Successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='76e9f3c9-c665-42a1-a37e-d0d47d0a5b74'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Property Owner Dashboard                     </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-22 11:47:39</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-22 11:48:04</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 25s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:47:52</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:47:54</td>                                                                                            <td class='step-details'>My Properties Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:47:56</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:47:59</td>                                                                                            <td class='step-details'>My Tenants Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:48:00</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:48:02</td>                                                                                            <td class='step-details'>Finance Details Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:48:04</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='7ae1e912-d582-4e4d-af95-8db162ff05b5'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Service Supplier Dashboard                    </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-22 11:48:34</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-22 11:48:55</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 21s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:48:44</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:48:46</td>                                                                                            <td class='step-details'>My Watchlist SS Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:48:48</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:48:50</td>                                                                                            <td class='step-details'>My Jobs Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:48:52</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:48:53</td>                                                                                            <td class='step-details'>My Quotes Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:48:55</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='bd354eb2-386b-4b68-8b45-91448064b46b'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Tenant Dashboard                   </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-22 11:49:26</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-22 11:49:45</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 19s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:49:35</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:49:36</td>                                                                                            <td class='step-details'>My Rentals Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:49:38</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:49:39</td>                                                                                            <td class='step-details'>My Watchlist Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:49:42</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:49:44</td>                                                                                            <td class='step-details'>My Applications Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:49:45</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='cd11f6e1-d5c9-4234-a01e-e8c339f639c4'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Service Supplier Dashboard                  </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-22 11:50:34</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-22 11:50:52</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 18s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:50:44</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:50:46</td>                                                                                            <td class='step-details'>My Watchlist SS Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:50:47</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:50:48</td>                                                                                            <td class='step-details'>My Jobs Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:50:49</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:50:50</td>                                                                                            <td class='step-details'>My Quotes Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:50:52</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='17dcc425-b9c6-4851-8bce-f216d03756c5'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Dashboard Signout                 </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-22 12:30:12</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-22 12:30:28</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 16s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>12:30:27</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>12:30:28</td>                                                                                            <td class='step-details'>Sign Out is Successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='4ee4df32-0103-4e07-af7c-8236bcdb2009'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Search, Sort by Name and Edit                </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-23 09:58:38</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-23 09:59:11</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 33s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>09:59:00</td>                                                                                            <td class='step-details'>In My Properties page</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>09:59:03</td>                                                                                            <td class='step-details'>Search is successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>09:59:06</td>                                                                                            <td class='step-details'>Sort is successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>09:59:10</td>                                                                                            <td class='step-details'>Edit is successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='f67c6191-612e-4b93-abb7-7112f7d3fb38'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Add New Property               </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-25 13:53:41</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-25 13:54:50</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 1m 9s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>13:53:54</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>13:54:16</td>                                                                                            <td class='step-details'>Property Added Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>13:54:32</td>                                                                                            <td class='step-details'>Property Added Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>13:54:48</td>                                                                                            <td class='step-details'>Property Added Successfully</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='c2fc8d36-8d91-44b0-9aca-afc82d2fd97a'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Delete Property              </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-25 13:56:35</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-25 13:56:55</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 20s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>13:56:43</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>13:56:53</td>                                                                                            <td class='step-details'>Successful Delete</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='5e014a2f-7491-4690-8699-8199eed54dde'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Edit Property             </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-26 13:46:10</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-26 13:46:35</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 25s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>13:46:18</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>13:46:33</td>                                                                                            <td class='step-details'>Property Edited Successfully</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='ea09c5de-ea03-40b1-8288-7eef06cd43ab'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Search, Sort by Name and Edit            </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-28 11:11:33</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-28 11:11:56</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 23s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:11:45</td>                                                                                            <td class='step-details'>In My Properties page</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:11:48</td>                                                                                            <td class='step-details'>Search is successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:11:51</td>                                                                                            <td class='step-details'>Sort is successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:11:55</td>                                                                                            <td class='step-details'>Edit is successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='f546873d-e3b4-473e-a27a-af93a0c523d4'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Search, Sort by Name and Edit           </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-28 11:13:21</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-28 11:13:37</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 16s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:13:30</td>                                                                                            <td class='step-details'>In My Properties page</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:13:32</td>                                                                                            <td class='step-details'>Search is successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:13:32</td>                                                                                            <td class='step-details'>Sort is successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:13:36</td>                                                                                            <td class='step-details'>Edit is successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='4f5638ee-7a90-4e57-b7d1-048be957cdf0'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Search, Sort by Name and Edit          </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-28 11:14:04</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-28 11:14:20</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 16s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:14:13</td>                                                                                            <td class='step-details'>In My Properties page</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:14:15</td>                                                                                            <td class='step-details'>Search is successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:14:15</td>                                                                                            <td class='step-details'>Sort is successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:14:19</td>                                                                                            <td class='step-details'>Edit is successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='7be5e22b-dbd3-4e86-9f29-73e08bf7d5c2'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Search, Sort by Name and Edit         </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-28 11:15:59</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-28 11:16:16</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 17s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:16:09</td>                                                                                            <td class='step-details'>In My Properties page</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:16:12</td>                                                                                            <td class='step-details'>Search is successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:16:12</td>                                                                                            <td class='step-details'>Sort is successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:16:15</td>                                                                                            <td class='step-details'>Edit is successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='248c69f0-ab52-45e9-ad65-3203c010a7bf'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Search, Sort by Name and Edit        </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-28 11:18:39</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-28 11:18:57</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 18s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:18:48</td>                                                                                            <td class='step-details'>In My Properties page</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:18:50</td>                                                                                            <td class='step-details'>Search is successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:18:53</td>                                                                                            <td class='step-details'>Sort is successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:18:56</td>                                                                                            <td class='step-details'>Edit is successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='53697162-5280-4d05-a17c-cbe871293d1a'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Delete Property       </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-28 11:21:05</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-28 11:21:25</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 20s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:21:15</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:21:23</td>                                                                                            <td class='step-details'>Successful Delete</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='d9bca88f-dba7-4921-be14-8284d00c2052'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Delete Property      </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-05-28 11:30:32</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-05-28 11:30:50</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 18s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:30:40</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>11:30:48</td>                                                                                            <td class='step-details'>Successful Delete</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='df6173d0-89ab-4a52-b96e-af2f6fa46164'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Delete Property     </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-06-05 20:14:56</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-06-05 20:15:25</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 29s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>20:15:07</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>20:15:23</td>                                                                                            <td class='step-details'>Successful Delete</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='28a2d5fa-7815-4ee0-997e-a7922bdc2c2c'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Edit Property    </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-06-05 20:15:47</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-06-05 20:16:15</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 28s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>20:15:58</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>20:16:13</td>                                                                                            <td class='step-details'>Property Edited Successfully</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='13f04bef-7969-4007-afb8-78698357badc'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Add New Property   </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-06-07 12:15:17</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-06-07 12:16:20</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 1m 3s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>12:15:28</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>12:15:47</td>                                                                                            <td class='step-details'>Property Added Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>12:16:01</td>                                                                                            <td class='step-details'>Property Added Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>12:16:17</td>                                                                                            <td class='step-details'>Property Added Successfully</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='9367d038-b481-45d4-b1cd-c33d19f7dc57'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Add New Property  </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-06-07 12:44:10</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-06-07 12:44:46</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 36s+0ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>12:44:21</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>12:44:44</td>                                                                                            <td class='step-details'>Property Added Successfully</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li>                                                            <li class='collection-item test displayed active pass ' extentid='f0d4a32c-be4d-4692-b6a2-013965e78d3b'>
+                                                                <div class='test-head'>
+                                                                    <span class='test-name'>Test - Tenant Dashboard </span>
+                                                                    <span class='test-status right label capitalize outline pass'>pass</span>
+                                                                    <span class='category-assigned hide '></span>
+                                                                </div>
+                                                                <div class='test-body'>
+                                                                    <div class='test-info'>
+                                                                        <span title='Test started time' alt='Test started time' class='test-started-time label green lighten-2 text-white'>2018-06-07 14:53:04</span>
+                                                                        <span title='Test ended time' alt='Test ended time' class='test-ended-time label red lighten-2 text-white'>2018-06-07 14:53:30</span>
+                                                                        <span title='Time taken to finish' alt='Time taken to finish' class='test-time-taken label blue-grey lighten-3 text-white'>0h 0m 25s+822ms</span>
+                                                                    </div>
+                                                                    <div class='test-desc'></div>
+                                                                    <div class='test-attributes'>
+                                                                                                                                            </div>
+                                                                    <div class='test-steps'>
+                                                                            <table class='bordered table-results'>
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Status</th>
+                                                                                        <th>Timestamp</th>
+                                                                                        <th>Details</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>14:53:20</td>                                                                                            <td class='step-details'>Successful Login</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>14:53:21</td>                                                                                            <td class='step-details'>My Rentals Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>14:53:23</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>14:53:25</td>                                                                                            <td class='step-details'>My Watchlist Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>14:53:27</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>14:53:28</td>                                                                                            <td class='step-details'>My Applications Dashboard Tested Successfully</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td class='status pass'><i class='mdi-action-check-circle'></i></td><td class='timestamp'>14:53:30</td>                                                                                            <td class='step-details'>Back Navigation Successful</td>
+                                                                                        </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div></div></li></ul></div></div></div></div><div id='test-details-wrapper' class='col _addedCell2'><div class='contents'><div class='card-panel details-view'><h5 class='details-name'></h5><div class='step-filters right'><span class='info' alt='info' title='info'><i class='mdi-action-info-outline'></i></span> <span class='pass' alt='pass' title='pass'><i class='mdi-action-check-circle'></i></span> <span class='fail' alt='fail' title='fail'><i class='mdi-navigation-cancel'></i></span> <span class='fatal' alt='fatal' title='fatal'><i class='mdi-navigation-cancel'></i></span> <span class='error' alt='error' title='error'><i class='mdi-alert-error'></i></span> <span class='warning' alt='warning' title='warning'><i class='mdi-alert-warning'></i></span> <span class='skip' alt='skip' title='skip'><i class='mdi-content-redo'></i></span> <span class='clear-step-filter' alt='Clear filters' title='Clear filters'><i class='mdi-content-clear'></i></span></div><div class='details-container'></div></div></div></div></div><!-- /tests --><!-- categories --><!-- /categories --><!-- exceptions --><!-- /exceptions --><!-- testrunner logs --><!-- /testrunner logs --></div><!-- modals --><div id='test-count-setting' class='modal bottom-sheet'> <div class='modal-content'> <h5>Configure Tests Count Setting</h5> <input name='test-count-setting' type='radio' id='parentWithoutNodes' class='with-gap'> <label for='parentWithoutNodes'>Parent Tests Only (Does not include child nodes in counts)</label> <br> <input name='test-count-setting' type='radio' id='parentWithoutNodesAndNodes' class='with-gap'> <label for='parentWithoutNodesAndNodes'>Parent Tests Without Child Tests + Child Tests</label> <br> <input name='test-count-setting' type='radio' id='childNodes' class='with-gap'> <label for='childNodes'>Child Tests Only</label> </div> <div class='modal-footer'> <a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> </div> </div> <div id='step-status-filter' class='modal bottom-sheet'> <div class='modal-content'> <h5>Select Status</h5> <input checked class='filled-in' type='checkbox' id='step-dashboard-filter-pass'> <label for='step-dashboard-filter-pass'>Pass</label> <br> <input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fail'> <label for='step-dashboard-filter-fail'>Fail</label> <br> <input checked class='filled-in' type='checkbox' id='step-dashboard-filter-fatal'> <label for='step-dashboard-filter-fatal'>Fatal</label> <br> <input checked class='filled-in' type='checkbox' id='step-dashboard-filter-error'> <label for='step-dashboard-filter-error'>Error</label> <br> <input checked class='filled-in' type='checkbox' id='step-dashboard-filter-warning'> <label for='step-dashboard-filter-warning'>Warning</label> <br> <input checked class='filled-in' type='checkbox' id='step-dashboard-filter-skip'> <label for='step-dashboard-filter-skip'>Skipped</label> <br> <input checked class='filled-in' type='checkbox' id='step-dashboard-filter-info'> <label for='step-dashboard-filter-info'>Info</label> <br> <input checked class='filled-in' type='checkbox' id='step-dashboard-filter-unknown'> <label for='step-dashboard-filter-unknown'>Unknown</label> </div> <div class='modal-footer'> <a href='#!' class='modal-action modal-close waves-effect waves-green btn'>Save</a> </div></div><!-- /modals --><script src='https://cdn.rawgit.com/anshooarora/extentreports/051be9b627c84bde3591f7e6268e8b70e334a760/cdn/extent.js' type='text/javascript'></script><script>$(document).ready(function() { $('.logo span').html('ExtentReports'); });</script><script>
+                $(document).ready(function() {
+                    
+                });
+            </script></body></html>
